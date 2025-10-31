@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeFlow - Master Your Typing Skills</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="Favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
+    <script type="text/javascript">
+   (function(){
+      emailjs.init('_y9G2WTXJuYtQuScP'); 
+   })();
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-keyboard"></i> TypeFlow
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#practice">Practice</a></li>
+                    <li><a href="#lessons">Lessons</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li>
+                        <button class="theme-toggle" id="themeToggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Master Typing with TypeFlow</h1>
+                <p>Improve your typing speed and accuracy with our interactive lessons, real-time feedback, and personalized practice sessions.</p>
+                <div class="cta-buttons">
+                    <a href="#practice" class="btn">Start Typing</a>
+                    <a href="#lessons" class="btn btn-outline">View Lessons</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose TypeFlow?</h2>
+                <p>Our platform offers everything you need to become a typing master</p>
+            </div>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Speed Tracking</h3>
+                    <p>Monitor your typing speed in real-time with our WPM (Words Per Minute) tracker and set new personal records.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Accuracy Analysis</h3>
+                    <p>Get detailed feedback on your typing accuracy and learn which keys you need to practice more.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Progressive Lessons</h3>
+                    <p>Start from the basics and gradually advance through our carefully designed lessons for all skill levels.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="practice">
+        <div class="container">
+            <div class="section-title">
+                <h2>Practice Your Skills</h2>
+                <p>Type the text below to test your speed and accuracy</p>
+            </div>
+            <div class="typing-area">
+                <div class="lesson-text" id="lessonText">
+                    The quick brown fox jumps over the lazy dog. This pangram contains all the letters of the English alphabet. It is commonly used for touch typing practice because it requires typing all the letters of the alphabet.
+                </div>
+                <textarea class="input-area" id="typingInput" placeholder="Start typing here..." disabled></textarea>
+                <div class="stats">
+                    <div class="stat-card">
+                        <h3 id="wpm">0</h3>
+                        <p>Words Per Minute</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="accuracy">0%</h3>
+                        <p>Accuracy</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="time">5:00</h3>
+                        <p>Time Remaining</p>
+                    </div>
+                </div>
+                <button class="btn" id="startBtn">Start Test</button>
+                <button class="btn" id="resetBtn" style="display: none;">Reset</button>
+                <div id="results" style="margin-top: 1.5rem; display: none;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Test Results</h3>
+                    <div class="stats">
+                        <div class="stat-card">
+                            <h3 id="finalWpm">0</h3>
+                            <p>Final WPM</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 id="finalAccuracy">0%</h3>
+                            <p>Final Accuracy</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 id="totalErrors">0</h3>
+                            <p>Total Errors</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="lessons">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Typing Lessons</h2>
+                <p>From beginner to advanced, we have lessons for everyone</p>
+            </div>
+            <div class="lessons">
+                <div class="lesson-card">
+                    <div class="lesson-img">
+                        <img src="https://images.unsplash.com/photo-1555532538-dcdbd01d373d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Beginner Lesson">
+                    </div>
+                    <div class="lesson-content">
+                        <h3>Beginner: Home Row Keys</h3>
+                        <p>Learn the foundation of touch typing with the home row keys (ASDF JKL;).</p>
+                        <div class="lesson-meta">
+                            <span><i class="fas fa-clock"></i> 15 minutes</span>
+                            <span><i class="fas fa-star"></i> 4.9/5</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-img">
+                        <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Intermediate Lesson">
+                    </div>
+                    <div class="lesson-content">
+                        <h3>Intermediate: Top Row</h3>
+                        <p>Master the top row keys (QWERTYUIOP) and increase your typing range.</p>
+                        <div class="lesson-meta">
+                            <span><i class="fas fa-clock"></i> 20 minutes</span>
+                            <span><i class="fas fa-star"></i> 4.8/5</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-img">
+                        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Advanced Lesson">
+                    </div>
+                    <div class="lesson-content">
+                        <h3>Advanced: Speed Drills</h3>
+                        <p>Challenge yourself with speed drills designed to push your WPM to new heights.</p>
+                        <div class="lesson-meta">
+                            <span><i class="fas fa-clock"></i> 25 minutes</span>
+                            <span><i class="fas fa-star"></i> 4.7/5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Users Say</h2>
+                <p>Success stories from TypeFlow users around the world</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <div class="testimonial-img">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="User">
+                    </div>
+                    <p>"TypeFlow transformed my typing skills! I went from 30 WPM to over 80 WPM in just two months of consistent practice. The interactive lessons and real-time feedback made all the difference."</p>
+                    <h4>Sarah Johnson</h4>
+                    <span>Content Writer</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Have questions or suggestions? We'd love to hear from you!</p>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="from_name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="reply_to" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>TypeFlow</h2>
+                    <p>Improve your typing skills with our interactive platform</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#lessons">Lessons</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/Saqibayaz4314/" target="_blank"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://x.com/saqibayaz95?t=2b59zBQ2yDtEjLfxg6ACow&s=09" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/saqibayaz4314/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/saqib-ayaz19/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TypeFlow. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
